@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
+    user = User.new(create_params)
     if user.save
       reset_session
       session[:user_id] = user.id
@@ -18,12 +18,27 @@ class UsersController < ApplicationController
     end
   end
 
+  def login
+    user = User.authenticate(login_params)
+    if user
+      reset_session
+      session[:user_id] = user.id
+      redirect_to user_path(user.id)
+    else
+      redirect_to users_path
+    end
+  end
+
   def show
 
   end
 
   private
-    def user_params
+    def create_params
       params.require(:user).permit(:name, :email, :password)
+    end
+
+    def login_params
+      params.require(:user).permit(:email, :password)
     end
 end

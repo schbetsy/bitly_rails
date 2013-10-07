@@ -5,6 +5,8 @@ UrlShortener::Application.routes.draw do
 
   root "users#index"
 
+  post '/users/login' => 'users#login'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
