@@ -1,1 +1,16 @@
-<%= current_user.name %>
+<h2>Welcome, <%= current_user.name %>!</h2>
+
+
+<h4>Here's where you'll create a new URL.</h4>
+
+<h4>Here's all the links you've shortened recently:</h4>
+<table>
+  <th>Short URL</th>
+  <th>Destination</th>
+  <% current_user.urls.each do |link| %>
+    <tr>
+      <td><%= link_to(link.short_url, link.full_url) %></td>
+      <td><%= link.full_url %></td>
+    </tr>
+  <% end %>
+</table>
