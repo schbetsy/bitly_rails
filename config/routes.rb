@@ -7,6 +7,8 @@ UrlShortener::Application.routes.draw do
 
   post '/users/login' => 'users#login'
 
+  get '/logout' => 'users#logout'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
