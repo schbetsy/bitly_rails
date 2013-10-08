@@ -1,14 +1,9 @@
 <h2>Welcome, <%= current_user.name %>!</h2>
 
 
-<h4>Here's where you'll create a new URL.</h4>
-<%= form_for @url do |f| %>
-  <%= f.label :full_url %>
-  <%= f.text_field :full_url %>
-  <%= f.submit "Shorten it!" %>
-<% end %>
+<%= render "urls/create_new" %>
 
-<h4>Here's all the links you've shortened recently:</h4>
+<h4>Here are links you've shortened recently:</h4>
 <table>
   <th>Short URL</th>
   <th>Destination</th>
