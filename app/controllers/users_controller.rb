@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  include ApplicationHelper
+
   def index
     @user = User.new
   end
@@ -36,6 +38,12 @@ class UsersController < ApplicationController
 
   def show
     @url = Url.new
+    # user = current_user
+    # if user.id != params[:id]
+    #   redirect_to root_path
+    # else
+    #   render :show
+    # end
   end
 
   private
