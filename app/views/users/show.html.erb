@@ -2,12 +2,17 @@
 
 
 <h4>Here's where you'll create a new URL.</h4>
+<%= form_for @url do |f| %>
+  <%= f.label :full_url %>
+  <%= f.text_field :full_url %>
+  <%= f.submit "Shorten it!" %>
+<% end %>
 
 <h4>Here's all the links you've shortened recently:</h4>
 <table>
   <th>Short URL</th>
   <th>Destination</th>
-  <% current_user.urls.each do |link| %>
+  <% current_user.urls.order("created_at DESC").each do |link| %>
     <tr>
       <td><%= link_to(link.short_url, link.full_url) %></td>
       <td><%= link.full_url %></td>

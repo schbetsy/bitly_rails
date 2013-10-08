@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @url = Url.new
   end
 
   private
