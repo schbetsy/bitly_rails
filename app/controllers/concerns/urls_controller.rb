@@ -11,6 +11,11 @@ class UrlsController < ApplicationController
     end
   end
 
+  def redirect
+    url = Url.find_by_short_url(params[:short_url])
+    redirect_to(url.full_url)
+  end
+
 
   private
     def create_params

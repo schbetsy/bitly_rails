@@ -9,6 +9,8 @@ UrlShortener::Application.routes.draw do
 
   get '/logout' => 'users#logout'
 
+  get '/:short_url' => 'urls#redirect'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
