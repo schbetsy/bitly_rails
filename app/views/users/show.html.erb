@@ -5,12 +5,12 @@
 
 <h4>Here are links you've shortened recently:</h4>
 <table>
-  <th>Short URL</th>
   <th>Destination</th>
+  <th>Give this URL to your friends!</th>
   <% current_user.urls.order("created_at DESC").each do |link| %>
     <tr>
-      <td><%= link_to(link.short_url, link.full_url) %></td>
-      <td><%= link.full_url %></td>
+      <td><%= link_to link.full_url, link.full_url %></td>
+      <td><%= root_url + link.short_url %></td>
     </tr>
   <% end %>
 </table>
